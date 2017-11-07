@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TIK-VP-WKr"/>
+                        <viewControllerLayoutGuide type="bottom" id="RhF-8d-geM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5wZ-qP-veP">
+                                <rect key="frame" x="0.0" y="121.5" width="375" height="424"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="5wZ-qP-veP" secondAttribute="height" multiplier="579:654" id="7oF-w4-uAH"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.4196777344" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="5wZ-qP-veP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Kyn-S8-ICw"/>
+                            <constraint firstItem="5wZ-qP-veP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Zk0-E6-mTi"/>
+                            <constraint firstAttribute="trailing" secondItem="5wZ-qP-veP" secondAttribute="trailing" id="gE7-rd-j9u"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageViewOne" destination="5wZ-qP-veP" id="TU8-NJ-6Sq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="49.925037481259373"/>
+        </scene>
+    </scenes>
+</document>
