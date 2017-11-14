@@ -27,6 +27,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     
     [self.imageViewOne sd_setImageWithURL:[NSURL URLWithString:@"https://images.apple.com/v/iphone-x/e/images/overview/primary/design_all_new_large_2x.jpg"]];
     
