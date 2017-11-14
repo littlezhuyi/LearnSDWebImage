@@ -85,13 +85,14 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
 
 - (id)initWithNamespace:(NSString *)ns {
     NSString *path = [self makeDiskCachePath:ns];
+    // path = /Users/zhuyi/Library/Developer/CoreSimulator/Devices/90F9F84B-A681-4A55-BFB5-1BCE2C4DD7AC/data/Containers/Data/Application/52ABA8EB-3CB3-4755-A131-94D1A4D57324/Library/Caches/default
     return [self initWithNamespace:ns diskCacheDirectory:path];
 }
 
 - (id)initWithNamespace:(NSString *)ns diskCacheDirectory:(NSString *)directory {
     if ((self = [super init])) {
         NSString *fullNamespace = [@"com.hackemist.SDWebImageCache." stringByAppendingString:ns];
-
+        // fullNamespace = com.hackemist.SDWebImageCache.default
         // initialise PNG signature data
         kPNGSignatureData = [NSData dataWithBytes:kPNGSignatureBytes length:8];
 
@@ -107,6 +108,7 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
 
         // Init the disk cache
         if (directory != nil) {
+            // /Users/zhuyi/Library/Developer/CoreSimulator/Devices/90F9F84B-A681-4A55-BFB5-1BCE2C4DD7AC/data/Containers/Data/Application/7B94C940-9438-4175-8E72-800474F6852A/Library/Caches/default/com.hackemist.SDWebImageCache.default
             _diskCachePath = [directory stringByAppendingPathComponent:fullNamespace];
         } else {
             NSString *path = [self makeDiskCachePath:ns];
@@ -163,17 +165,20 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
     }
 }
 
+// 完整图片路径
 - (NSString *)cachePathForKey:(NSString *)key inPath:(NSString *)path {
     NSString *filename = [self cachedFileNameForKey:key];
     return [path stringByAppendingPathComponent:filename];
 }
 
+// 默认的图片路径
 - (NSString *)defaultCachePathForKey:(NSString *)key {
     return [self cachePathForKey:key inPath:self.diskCachePath];
 }
 
 #pragma mark SDImageCache (private)
 
+// 生成图片名称
 - (NSString *)cachedFileNameForKey:(NSString *)key {
     const char *str = [key UTF8String];
     if (str == NULL) {
@@ -191,7 +196,7 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
 #pragma mark ImageCache
 
 // Init the disk cache
--(NSString *)makeDiskCachePath:(NSString*)fullNamespace{
+- (NSString *)makeDiskCachePath:(NSString*)fullNamespace{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     return [paths[0] stringByAppendingPathComponent:fullNamespace];
 }
@@ -333,6 +338,7 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
     return diskImage;
 }
 
+// 检测默认路径和自定义路径中有没有缓存
 - (NSData *)diskImageDataBySearchingAllPathsForKey:(NSString *)key {
     NSString *defaultPath = [self defaultCachePathForKey:key];
     NSData *data = [NSData dataWithContentsOfFile:defaultPath];
@@ -385,6 +391,8 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
     return SDScaledImageForKey(key, image);
 }
 
+// 同步查找内存缓存
+// 异步查找磁盘缓存
 - (NSOperation *)queryDiskCacheForKey:(NSString *)key done:(SDWebImageQueryCompletedBlock)doneBlock {
     if (!doneBlock) {
         return nil;
@@ -396,6 +404,7 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
     }
 
     // First check the in-memory cache...
+    // NSCache
     UIImage *image = [self imageFromMemoryCacheForKey:key];
     if (image) {
         doneBlock(image, SDImageCacheTypeMemory);

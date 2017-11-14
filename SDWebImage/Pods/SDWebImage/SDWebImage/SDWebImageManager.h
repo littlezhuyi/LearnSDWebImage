@@ -90,7 +90,7 @@ typedef NS_OPTIONS(NSUInteger, SDWebImageOptions) {
      * as most transformation code would mangle it.
      * Use this flag to transform them anyway.
      */
-    SDWebImageTransformAnimatedImage = 1 << 10,
+SDWebImageTransformAnimatedImage = 1 << 10,
     
     /**
      * 默认情况下，图像下载后添加到ImageView。但在某些情况下，我们希望在设置图像之前使用手（例如，应用一个过滤器或添加交叉淡入淡出动画）如果您想在成功完成时手动设置图像，请使用此标志。
@@ -115,6 +115,7 @@ typedef NSString *(^SDWebImageCacheKeyFilterBlock)(NSURL *url);
 @optional
 
 /**
+ * 当图片没有被找到时，控制哪一张图片应该下载
  * Controls which image should be downloaded when the image is not found in the cache.
  *
  * @param imageManager The current `SDWebImageManager`

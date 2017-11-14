@@ -39,36 +39,43 @@ typedef void(^SDWebImageCalculateSizeBlock)(NSUInteger fileCount, NSUInteger tot
 /**
  * Decompressing images that are downloaded and cached can improve performance but can consume lot of memory.
  * Defaults to YES. Set this to NO if you are experiencing a crash due to excessive memory consumption.
+ * 是否压缩图片
  */
 @property (assign, nonatomic) BOOL shouldDecompressImages;
 
 /**
  *  disable iCloud backup [defaults to YES]
+ *  是否开启iCloud缓存
  */
 @property (assign, nonatomic) BOOL shouldDisableiCloud;
 
 /**
  * use memory cache [defaults to YES]
+ * 是否开启内存缓存
  */
 @property (assign, nonatomic) BOOL shouldCacheImagesInMemory;
 
 /**
  * The maximum "total cost" of the in-memory image cache. The cost function is the number of pixels held in memory.
+ * 可以通过maxMemoryCost来设置内存的最大缓存是多少，这个是以像素为单位的。
  */
 @property (assign, nonatomic) NSUInteger maxMemoryCost;
 
 /**
  * The maximum number of objects the cache should hold.
+ * 可以通过maxMemoryCountLimit来设置内存的最大缓存数量是多少
  */
 @property (assign, nonatomic) NSUInteger maxMemoryCountLimit;
 
 /**
  * The maximum length of time to keep an image in the cache, in seconds
+ * 最大的缓存不过期时间， 单位为秒，默认为一周的时间
  */
 @property (assign, nonatomic) NSInteger maxCacheAge;
 
 /**
  * The maximum size of the cache, in bytes.
+ * 缓存的最大空间
  */
 @property (assign, nonatomic) NSUInteger maxCacheSize;
 
@@ -94,7 +101,7 @@ typedef void(^SDWebImageCalculateSizeBlock)(NSUInteger fileCount, NSUInteger tot
  */
 - (id)initWithNamespace:(NSString *)ns diskCacheDirectory:(NSString *)directory;
 
--(NSString *)makeDiskCachePath:(NSString*)fullNamespace;
+- (NSString *)makeDiskCachePath:(NSString*)fullNamespace;
 
 /**
  * Add a read-only cache path to search for images pre-cached by SDImageCache
