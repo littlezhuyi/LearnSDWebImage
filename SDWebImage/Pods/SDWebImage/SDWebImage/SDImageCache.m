@@ -34,8 +34,11 @@
 
 @end
 
+// 默认的缓存周期
 static const NSInteger kDefaultCacheMaxCacheAge = 60 * 60 * 24 * 7; // 1 week
+
 // PNG signature bytes and data (below)
+// 图片bytes和data的转换
 static unsigned char kPNGSignatureBytes[8] = {0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A};
 static NSData *kPNGSignatureData = nil;
 
@@ -196,6 +199,7 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
 #pragma mark ImageCache
 
 // Init the disk cache
+// 生成默认的缓存路径
 - (NSString *)makeDiskCachePath:(NSString*)fullNamespace{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     return [paths[0] stringByAppendingPathComponent:fullNamespace];
@@ -211,6 +215,7 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
         [self.memCache setObject:image forKey:key cost:cost];
     }
 
+    // 异步缓存到disk
     if (toDisk) {
         dispatch_async(self.ioQueue, ^{
             NSData *data = imageData;
@@ -259,12 +264,14 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
     [self storeImage:image recalculateFromImage:YES imageData:nil forKey:key toDisk:toDisk];
 }
 
+// 存储图片
 - (void)storeImageDataToDisk:(NSData *)imageData forKey:(NSString *)key {
     
     if (!imageData) {
         return;
     }
     
+    // 判断是否位文件路径
     if (![_fileManager fileExistsAtPath:_diskCachePath]) {
         [_fileManager createDirectoryAtPath:_diskCachePath withIntermediateDirectories:YES attributes:nil error:NULL];
     }
@@ -316,10 +323,12 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
     });
 }
 
+// 从内存缓存中查找
 - (UIImage *)imageFromMemoryCacheForKey:(NSString *)key {
     return [self.memCache objectForKey:key];
 }
 
+// 开始查找图片
 - (UIImage *)imageFromDiskCacheForKey:(NSString *)key {
 
     // First check the in-memory cache...
