@@ -3,4 +3,5 @@ platform :ios, ‘8.0’
 target ‘SDWebImage’ do
 pod 'SDWebImage', '~> 3.6'
 pod 'FSCalendar'
+pod  'AFNetworking'
 end

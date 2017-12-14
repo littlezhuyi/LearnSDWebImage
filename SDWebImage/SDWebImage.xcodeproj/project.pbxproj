@@ -14,8 +14,6 @@
 		25A9165D1FA9CCF9003099DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25A9165C1FA9CCF9003099DE /* Assets.xcassets */; };
 		25A916601FA9CCF9003099DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25A9165E1FA9CCF9003099DE /* LaunchScreen.storyboard */; };
 		25A916631FA9CCF9003099DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A916621FA9CCF9003099DE /* main.m */; };
-		25C0C9191FAC578500ECC45E /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C0C9171FAC578500ECC45E /* CalendarViewController.m */; };
-		25C0C91A1FAC578500ECC45E /* CalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25C0C9181FAC578500ECC45E /* CalendarViewController.xib */; };
 		C8DF113FDEDCFE26B9F5CC96 /* libPods-SDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A819DC4D4FC51E0310967C9A /* libPods-SDWebImage.a */; };
 /* End PBXBuildFile section */
 
@@ -34,9 +32,6 @@
 		25A9165F1FA9CCF9003099DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25A916611FA9CCF9003099DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25A916621FA9CCF9003099DE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		25C0C9161FAC578500ECC45E /* CalendarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
-		25C0C9171FAC578500ECC45E /* CalendarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
-		25C0C9181FAC578500ECC45E /* CalendarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarViewController.xib; sourceTree = "<group>"; };
 		A819DC4D4FC51E0310967C9A /* libPods-SDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SDWebImage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -80,9 +75,6 @@
 				25A916591FA9CCF9003099DE /* Main.storyboard */,
 				255DB7871FB9892600DE0827 /* Tools.h */,
 				255DB7881FB9892600DE0827 /* Tools.m */,
-				25C0C9161FAC578500ECC45E /* CalendarViewController.h */,
-				25C0C9171FAC578500ECC45E /* CalendarViewController.m */,
-				25C0C9181FAC578500ECC45E /* CalendarViewController.xib */,
 				25A9165C1FA9CCF9003099DE /* Assets.xcassets */,
 				25A9165E1FA9CCF9003099DE /* LaunchScreen.storyboard */,
 				25A916611FA9CCF9003099DE /* Info.plist */,
@@ -170,7 +162,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				25A916601FA9CCF9003099DE /* LaunchScreen.storyboard in Resources */,
-				25C0C91A1FAC578500ECC45E /* CalendarViewController.xib in Resources */,
 				25A9165D1FA9CCF9003099DE /* Assets.xcassets in Resources */,
 				25A9165B1FA9CCF9003099DE /* Main.storyboard in Resources */,
 			);
@@ -234,7 +225,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25C0C9191FAC578500ECC45E /* CalendarViewController.m in Sources */,
 				255DB7891FB9892600DE0827 /* Tools.m in Sources */,
 				25A916581FA9CCF9003099DE /* ViewController.m in Sources */,
 				25A916631FA9CCF9003099DE /* main.m in Sources */,
